@@ -1,5 +1,11 @@
 # Reach React Template
 
+This repository has many tools that you can use in your Reach projects, such as connect wallet button, faucet modals and a simple framework to build your own websites.
+
+Or you can just tweak the files in the participant folder and the routes in App.js to configure the already working site for your needs.
+
+Project uses React Hooks and Context for state management and Bootstrap for styling. 
+
 ## Instructions
 * Node.js must be installed in your system.
 * After cloning the project with `$ git clone https://github.com/Zetsuboii/reach-react-template.git; cd reach-react-template`
