@@ -1,3 +1,23 @@
+/**
+ * @dev App.js hold the various paths your app will have. In my version
+ * there are 6 pages:
+ * "/" -> Home: The page where you deploy and attach to the contract
+ * 
+ * "/about" -> About: A brief introduction to your program
+ * 
+ * "/deploy" -> Deployment Page: The page where you can copy the contract info
+ *              and proceed to the app. This page is only for the user who deploys
+ *              the contract, attaching user will go directly to the app
+ * 
+ * "/app/alice" & "/app/bob" -> Participant Pages: Each participant has their own page
+ *                              where they interact with their program. You should have
+ *                              one page for each Participant / ParticipantClass
+ * 
+ * "/test" -> Test Page: If you just want to see how a view looks without deploying the
+ *            contract again and again I recommend you to import that view and set it as
+ *            the component of the test path
+ */
+
 import './App.css';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
