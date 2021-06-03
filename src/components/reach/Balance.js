@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { Context } from "../../Context";
 
 /**
- * @dev Uygulama boyunca ne kadar bakiyeniz olduğunu gösterir
- * Düzgün çalışması için her para transferinden sonra 
- * Context'teki balance'ı güncellemeniz gerekli.
+ * @dev Shows the user's balance throughout the app
+ * For best performance you should update balance 
+ * after each balance-related function (or after every function)
  */
 const Balance = () => {
 
