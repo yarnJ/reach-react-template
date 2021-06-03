@@ -12,27 +12,26 @@ import { Context } from "../../Context";
 export const DeployButton = ({ ctcArgs }) => {
     const [account, , , , , setCtcInfo, , setCtc, , setCtcArgs] = useContext(Context);
     const [show, setShow] = useState(false);
+    // In order to redirect you need to use this hook
     const history = useHistory();
 
     const deploy = async () => {
-        // Yüklendiğini gösteren bir pencere aç
+        // Show the loading screen
         setShow(true);
 
         const ctc = account.deploy(Backend);
 
-        // Uygulama sayfasında katılımcıyı tanımlamak için kontratı 
-        // Context'e aktar
+        // To use in participant page pass contract to Context
         setCtc([ctc]);
 
-        // Kontratı yüklerken vereceğimiz değerleri burada veriyoruz
+        // Pass the contract arguments
         setCtcArgs(ctcArgs);
 
-        // Kontrat bilgilerini String haline getir ve ileride kopyalamak için
-        // Context'e aktar
+        // Stringify the contract info and set the state so that you can copy it.
         const ctcInfo = JSON.stringify(await ctc.getInfo(), null, 2);
         setCtcInfo([ctcInfo]);
 
-        // Kontrat yükleme sayfasına geç
+        // Proceed to deployment page
         history.push('/deploy');
     }
 
@@ -53,15 +52,15 @@ export const AttachButton = () => {
     const handleClose = () => setShow(false);
 
     const attach = async (ctcInfo) => {
-        // Bilgisi verilen kontrata bağlan
+        // Attach to the contract you know the info of
         const ctc = await account.attach(Backend, JSON.parse(ctcInfo));
 
-        // Uygulama sayfasında katılımcıyı tanımlamak için kontratı 
-        // Context'e aktar
+        // To use in participant page pass contract to Context
         setCtc([ctc]);
 
         console.log("Attached to the contract");
-        // Uygulama sayfasına geç
+
+        // Proceed to the participant page
         history.push("/app/bob");
     }
 
@@ -78,7 +77,7 @@ export const AttachButton = () => {
 
 const AttachModal = ({ show, handleClose, attach }) => {
     const handleAttach = () => {
-        // Kontrat bilgilerini çek
+        // Fetch the contract information
         const info = document.querySelector("#ctcArea").value;
         attach(info);
     }
