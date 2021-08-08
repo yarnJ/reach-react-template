@@ -1,12 +1,13 @@
 import React, { useState, useContext } from "react";
 import Nav from "react-bootstrap/Nav";
+import * as config from "../../config";
 
 import { Context } from "../../Context";
 import FaucetModal from "./FaucetModal";
 
 
 const FaucetButton = () => {
-    const [account, , , setBalance] = useContext(Context);
+    const { account, setBalance } = useContext(Context);
 
     const [show, setShow] = useState(false);
 
@@ -16,7 +17,7 @@ const FaucetButton = () => {
         (
             <div>
                 <Nav.Link onClick={handleOpen}>Faucet</Nav.Link>
-                <FaucetModal setBalance={setBalance} account={account} show={show} setShow={setShow} unit="ALGO" />
+                <FaucetModal setBalance={setBalance} account={account} show={show} setShow={setShow} unit={config.network} />
             </div>
         ) : (<div />);
 }

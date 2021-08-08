@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import * as config from "../../config";
 import { Context } from "../../Context";
 
 /**
@@ -8,7 +9,7 @@ import { Context } from "../../Context";
  */
 const Balance = () => {
 
-    const [account, , balance] = useContext(Context);
+    const { account, balance } = useContext(Context);
 
     return (
         Object.keys(account).length !== 0
@@ -16,7 +17,7 @@ const Balance = () => {
                 backgroundColor: "white",
                 boxShadow: "2px 2px #ddd",
             }}>
-                <strong>{balance} ALGO</strong>
+                <strong>{balance} {config.network}</strong>
             </span>)
             : <div />
     );

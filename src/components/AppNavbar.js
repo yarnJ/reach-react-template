@@ -21,7 +21,7 @@ const AppNavbar = () => {
                         className="d-inline-block align-top"
                         alt="Reach Logo" />
                     {' '}
-                    <p className="d-inline-block ml-3">Rock Paper Scissors</p>
+                    <p className="d-inline-block ml-3">RAJIN Admin Page</p>
                 </Navbar.Brand>
                 <Nav className="ml-auto">
                     <LinkContainer to="/">

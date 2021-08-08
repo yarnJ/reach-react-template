@@ -26,9 +26,10 @@ import AppNavbar from './components/AppNavbar';
 import Home from './components/views/Home';
 import About from './components/views/About';
 import DeployScreen from './components/views/DeployScreen';
-import { Alice } from './components/participants/Alice';
-import { Bob } from './components/participants/Bob';
-import { AcceptWager } from "./components/participants/BobViews";
+
+import Minter from './components/participants/Minter';
+import Approver from './components/participants/Approver';
+import Creator from './components/participants/Creator';
 
 const App = () => {
   return (
@@ -39,9 +40,10 @@ const App = () => {
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
           <Route path="/deploy" component={DeployScreen} />
-          <Route path="/app/alice" component={Alice} />
-          <Route path="/app/bob" component={Bob} />
-          <Route path="/test" component={AcceptWager} />
+          <Route path="/app/minter" component={Minter} />
+          <Route path="/app/approver" component={Approver} />
+          <Route path="/app/creator" component={Creator} />
+          <Route path="/test" component={Home} />
         </Switch>
       </div>
     </Router>

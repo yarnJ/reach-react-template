@@ -1,21 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import Form from "react-bootstrap/Form";
 
 import ConnectWallet from "../reach/ConnectWallet";
 import { Context } from "../../Context";
-import { AttachButton, DeployButton } from "../reach/DeployAttach";
+import { AttachButton, DeployAirdropButton, DeployButton, DeploySwapButton } from "../reach/DeployAttach";
 
 const Home = () => {
 
-    const [account, , , , ,] = useContext(Context);
-    const [wager, setWager] = useState(0);
+    const { account } = useContext(Context);
 
-    return account !== "" ? (
+    return Object.keys(account).length > 0 ? (
         <Container className="h-100">
             <div className="mt-5">
                 <Row>
@@ -26,19 +24,8 @@ const Home = () => {
                             <Card.Text>
                                 Deploy your own application
                             </Card.Text>
-                            <Form.Group>
-                                <Form.Label>Wager amount</Form.Label>
-                                <Form.Control
-                                    value={wager}
-                                    onChange={(e) => setWager(e.target.value)}
-                                    type="number"
-                                    placeholder="Enter wager" />
-                            </Form.Group>
-                            <DeployButton ctcArgs={[
-                                {
-                                    wager: wager,
-                                }
-                            ]} />
+
+                            <DeployButton />
                         </Card>
                     </Col>
                     <Col>
@@ -49,6 +36,26 @@ const Home = () => {
                                 Attach to an already existing application
                             </Card.Text>
                             <AttachButton />
+                        </Card>
+                    </Col>
+                    <Col>
+                        <Card className="p-3">
+                            <Card.Title>Deploy Airdrop Contract</Card.Title>
+                            <hr className="mt-1" />
+                            <Card.Text>
+                                Lorem ipsum
+                            </Card.Text>
+                            <DeployAirdropButton />
+                        </Card>
+                    </Col>
+                    <Col>
+                        <Card className="p-3">
+                            <Card.Title>Deploy Swap Contract</Card.Title>
+                            <hr className="mt-1" />
+                            <Card.Text>
+                                Lorem ipsum
+                            </Card.Text>
+                            <DeploySwapButton />
                         </Card>
                     </Col>
                 </Row>
